@@ -1,0 +1,45 @@
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+buildscript {
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    ext{
+
+        serenityVersion = '3.2.5'
+        serenityCucumberVersion = '3.2.5'
+
+    }
+
+    dependencies {
+
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.4.34")
+
+    }
+
+
+}
+
+apply plugin: 'java'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+
+dependencies {
+
+    implementation 'net.serenity-bdd:serenity-core:3.2.5'
+    implementation 'net.serenity-bdd:serenity-ensure:3.2.5'
+    implementation 'net.serenity-bdd:serenity-cucumber:3.2.5'
+    implementation 'net.serenity-bdd:serenity-screenplay:3.2.5'
+
+}
+
+gradle.startParameter.continueOnFailure = true
